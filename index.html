@@ -4,84 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Firstep | Neutral Financial Guidance for First-Time Investors</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', -apple-system, sans-serif; line-height: 1.6; color: #2d3436; margin: 0; padding: 0; background-color: #fafafa; }
-        header { background: linear-gradient(135deg, #00796b 0%, #004d40 100%); color: white; padding: 4rem 1rem; text-align: center; }
-        .container { max-width: 900px; margin: auto; padding: 3rem 1.5rem; }
-        h1 { font-size: 3rem; margin-bottom: 0.5rem; letter-spacing: -1px; }
-        h2 { color: #00796b; border-bottom: 2px solid #e0f2f1; padding-bottom: 10px; margin-top: 3rem; }
-        .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 2rem; }
-        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border: 1px solid #eee; }
-        .highlight { color: #00796b; font-weight: 700; }
-        .feature-num { font-size: 0.9rem; font-weight: bold; color: #00796b; text-transform: uppercase; }
-        .team-section { background: #e0f2f1; padding: 2rem; border-radius: 15px; margin-top: 3rem; }
-        footer { text-align: center; padding: 4rem 2rem; background: #2d3436; color: #dfe6e9; margin-top: 4rem; }
-        .cta-button { background: #ff7043; color: white; padding: 15px 30px; text-decoration: none; border-radius: 30px; font-weight: bold; display: inline-block; margin-top: 2rem; transition: transform 0.2s; }
-        .cta-button:hover { transform: translateY(-2px); }
+        :root { --primary: #00796b; --primary-dark: #004d40; --accent: #ff7043; --text: #2d3436; --bg: #fafafa; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text); margin: 0; background-color: var(--bg); }
+        
+        /* Header & Hero */
+        header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 5rem 1.5rem; text-align: center; }
+        h1 { font-size: 3.5rem; margin: 0; letter-spacing: -2px; }
+        .tagline { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 1rem auto; }
+        
+        .container { max-width: 1000px; margin: auto; padding: 4rem 1.5rem; }
+        h2 { font-size: 2rem; color: var(--primary); border-bottom: 2px solid #e0f2f1; padding-bottom: 10px; margin-top: 4rem; }
+        
+        /* Grid Layouts */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 2rem; }
+        .card { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); }
+        
+        /* Market Data */
+        .market-badge { background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
+        .stat-box { text-align: center; border: 1px solid #eee; padding: 1.5rem; border-radius: 12px; }
+        .stat-num { font-size: 2rem; font-weight: 800; color: var(--primary); display: block; }
+        
+        /* Business Model */
+        .model-item { border-left: 4px solid var(--accent); padding-left: 20px; margin-bottom: 2rem; }
+        
+        /* Timeline */
+        .timeline { border-left: 2px solid #ddd; padding-left: 30px; margin-left: 10px; }
+        .timeline-item { position: relative; margin-bottom: 2rem; }
+        .timeline-item::before { content: ""; position: absolute; left: -41px; top: 5px; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; }
+        
+        /* Footer */
+        .cta-section { text-align: center; background: #e0f2f1; padding: 5rem 1.5rem; border-radius: 20px; margin: 4rem 0; }
+        .cta-button { background: var(--accent); color: white; padding: 18px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem; transition: 0.3s; display: inline-block; }
+        .cta-button:hover { background: #f4511e; box-shadow: 0 5px 15px rgba(255,112,67,0.4); }
+        footer { background: #2d3436; color: white; padding: 4rem 2rem; text-align: center; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Firstep</h1>
-    <p style="font-size: 1.2rem; opacity: 0.9;">The neutral financial guidance platform for first-time investors built by one of them.</p>
+    <p class="tagline">The neutral financial guidance platform for first-time investors built by one of them. <br><strong>Startup World Cup 2026 Pre-seed Stage Taiwan</strong></p>
 </header>
 
 <div class="container">
+    
+    <!-- Problem Section -->
     <section>
         <h2>The Problem</h2>
-        <p>Over <span class="highlight">1,000,000 university students</span> in Taiwan face three simultaneous barriers to building wealth:</p>
-        <div class="problem-grid">
+        <p>Most young people know they should invest—but don't. Over 1,000,000 university students in Taiwan face these barriers simultaneously:</p>
+        <div class="grid">
             <div class="card">
-                <span class="highlight">Knowledge Gap</span>
-                <p>No finance background and no accessible starting point.</p>
+                <h3 class="highlight">Knowledge Gap</h3>
+                <p>No finance background, no accessible starting point. "I just don't know where to start."</p>
             </div>
             <div class="card">
-                <span class="highlight">Trust Gap</span>
-                <p>Banks and brokers are seen as conflict-ridden salespeople.[cite: 2]</p>
+                <h3 class="highlight">Trust Gap</h3>
+                <p>Banks and brokers are seen as conflict-ridden salespeople. Students fear losing money and biased advice.</p>
             </div>
             <div class="card">
-                <span class="highlight">Action Gap</span>
-                <p>Traditional resources take too long—students quit before starting.[cite: 2]</p>
+                <h3 class="highlight">Action Gap</h3>
+                <p>Reading books takes too long—most quit before even opening their first account.</p>
             </div>
         </div>
     </section>
 
+    <!-- Market Section -->
     <section>
-        <h2>Our Solution</h2>
-        <div class="problem-grid">
+        <h2>Market Opportunity</h2>
+        <p>A massive underserved market with a clear expansion path:</p>
+        <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="stat-box">
+                <span class="stat-num">1M+</span>
+                University Students
+            </div>
+            <div class="stat-box">
+                <span class="stat-num">70%</span>
+                Non-Finance Background
+            </div>
+            <div class="stat-box">
+                <span class="stat-num">NT$2B+</span>
+                TAM (Taiwan Education)
+            </div>
+        </div>
+        <p style="margin-top: 2rem;"><strong>Expansion Path:</strong> University Students (Phase 1) → Recent Graduates (Phase 2) → Southeast Asia Market (Phase 3).</p>
+    </section>
+
+    <!-- Solution Section -->
+    <section>
+        <h2>The Two-Layer Solution</h2>
+        <div class="grid">
             <div class="card">
-                <span class="feature-num">01. Profile</span>
-                <h3>3-min Quiz</h3>
-                <p>Personalized analysis of age, income, risk tolerance, and goals.[cite: 2]</p>
+                <span class="market-badge">Personalization</span>
+                <h3>01. User Profile</h3>
+                <p>3-min quiz analyzing age, income, risk tolerance & goals.</p>
             </div>
             <div class="card">
-                <span class="feature-num">02. Guidance</span>
-                <h3>Master Wisdom</h3>
-                <p>Buffett and Peter Lynch’s principles tailored to your life stage.[cite: 2]</p>
+                <span class="market-badge">Education</span>
+                <h3>02. Master Wisdom</h3>
+                <p>Tailored principles from Buffett and Peter Lynch personalized to your life stage.</p>
             </div>
-            <div class="card">
-                <span class="feature-num">03. Trust</span>
-                <h3>Advisor Match</h3>
-                <p>Vetted independent advisors with <span class="highlight">Zero Conflict of Interest</span>.[cite: 2]</p>
+            <div class="card" style="grid-column: span 2;">
+                <span class="market-badge">Trust</span>
+                <h3>03. Advisor Match & Action</h3>
+                <p>Vetted independent advisors with <strong>Zero Commission Conflict</strong>. Open accounts via trusted partners only when you are ready.</p>
             </div>
         </div>
     </section>
 
-    <section class="team-section">
-        <h2>Founder's Vision</h2>
-        <p>Combining <strong>Quantitative Finance</strong> depth with a real investing track record. Firstep provides a guided, trusted path for every student, especially those without a technical background.[cite: 2]</p>
-        <p><em>Background: NTHU Quant Finance | Incoming MS Financial Engineering @ NYU | Yuanta Futures Prop Trading.</em>[cite: 2]</p>
+    <!-- Business Model -->
+    <section>
+        <h2>Sustainable Business Model</h2>
+        <div class="model-item">
+            <h3>Broker Referral Fees</h3>
+            <p>Industry-standard, fully compliant commission from partner brokers when users open accounts (Zero cost to users).</p>
+        </div>
+        <div class="model-item">
+            <h3>Student/Campus Subscription</h3>
+            <p>B2C: NT$49-99/mo for priority matching. B2B: Institutional pricing for universities to provide free access.</p>
+        </div>
+        <div class="model-item">
+            <h3>Advisor Platform Fee</h3>
+            <p>Monthly listing fee from independent advisors. We charge the supply side; users match for free.</p>
+        </div>
     </section>
 
-    <div style="text-align: center;">
-        <a href="mailto:contact@firstep.io" class="cta-button">Join the Pre-seed Waitlist</a>
-    </div>
+    <!-- Traction -->
+    <section>
+        <h2>Traction & Roadmap</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <strong>Now: Concept Validation</strong>
+                <p>Refining problem statement, user research (30+ interviews), and legal structure identification.</p>
+            </div>
+            <div class="timeline-item">
+                <strong>Month 3-4: MVP Launch</strong>
+                <p>Profile quiz launch, first 5 independent advisors onboarded, broker partnership signed.</p>
+            </div>
+            <div class="timeline-item">
+                <strong>Month 5-6: Growth</strong>
+                <p>Targeting first 500 users with >40% retention. Preparing for Pre-seed fundraise.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team -->
+    <section class="cta-section">
+        <h2>Founder & Vision</h2>
+        <p><strong>NTHU Quantitative Finance | Incoming MS Financial Engineering @ NYU</strong></p>
+        <p>Founder & President of NTHU Data Science Club. Experience in Proprietary Trading at Yuanta Futures. We combine quantitative depth with a guided path for every student.</p>
+        <a href="mailto:contact@firstep.io" class="cta-button">Join the Revolution</a>
+    </section>
+
 </div>
 
 <footer>
-    <p>"Every investor started somewhere. We make sure that somewhere is Firstep."[cite: 2]</p>
-    <p>© 2026 Firstep | Startup World Cup Pre-seed Stage Taiwan[cite: 2]</p>
+    <p>"Every investor started somewhere. We make sure that somewhere is Firstep."</p>
+    <p>© 2026 Firstep Project | Startup World Cup Pre-seed Stage Taiwan</p>
 </footer>
 
 </body>
