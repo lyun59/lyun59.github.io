@@ -1,169 +1,982 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firstep | Neutral Financial Guidance for First-Time Investors</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root { --primary: #00796b; --primary-dark: #004d40; --accent: #ff7043; --text: #2d3436; --bg: #fafafa; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text); margin: 0; background-color: var(--bg); }
-        
-        /* Header & Hero */
-        header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; padding: 5rem 1.5rem; text-align: center; }
-        h1 { font-size: 3.5rem; margin: 0; letter-spacing: -2px; }
-        .tagline { font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 1rem auto; }
-        
-        .container { max-width: 1000px; margin: auto; padding: 4rem 1.5rem; }
-        h2 { font-size: 2rem; color: var(--primary); border-bottom: 2px solid #e0f2f1; padding-bottom: 10px; margin-top: 4rem; }
-        
-        /* Grid Layouts */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 2rem; }
-        .card { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        
-        /* Market Data */
-        .market-badge { background: var(--primary); color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
-        .stat-box { text-align: center; border: 1px solid #eee; padding: 1.5rem; border-radius: 12px; }
-        .stat-num { font-size: 2rem; font-weight: 800; color: var(--primary); display: block; }
-        
-        /* Business Model */
-        .model-item { border-left: 4px solid var(--accent); padding-left: 20px; margin-bottom: 2rem; }
-        
-        /* Timeline */
-        .timeline { border-left: 2px solid #ddd; padding-left: 30px; margin-left: 10px; }
-        .timeline-item { position: relative; margin-bottom: 2rem; }
-        .timeline-item::before { content: ""; position: absolute; left: -41px; top: 5px; width: 20px; height: 20px; background: var(--primary); border-radius: 50%; }
-        
-        /* Footer */
-        .cta-section { text-align: center; background: #e0f2f1; padding: 5rem 1.5rem; border-radius: 20px; margin: 4rem 0; }
-        .cta-button { background: var(--accent); color: white; padding: 18px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.1rem; transition: 0.3s; display: inline-block; }
-        .cta-button:hover { background: #f4511e; box-shadow: 0 5px 15px rgba(255,112,67,0.4); }
-        footer { background: #2d3436; color: white; padding: 4rem 2rem; text-align: center; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Firstep | Neutral Financial Guidance for First-Time Investors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal: #00897b;
+      --teal-dark: #00574f;
+      --teal-deep: #003d36;
+      --teal-glow: rgba(0,137,123,0.18);
+      --cream: #f7f5f0;
+      --warm-white: #fdfcfa;
+      --coral: #ff5c35;
+      --coral-dim: rgba(255,92,53,0.12);
+      --text: #1a1a1a;
+      --text-muted: #6b7280;
+      --line: rgba(0,0,0,0.08);
+      --card-bg: #ffffff;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(253,252,250,0.85);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 1.5rem;
+      color: var(--teal-dark); letter-spacing: -0.5px;
+    }
+    .nav-links { display: flex; gap: 2.5rem; }
+    .nav-links a {
+      font-size: 0.88rem; font-weight: 500; text-decoration: none;
+      color: var(--text-muted); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .nav-cta {
+      background: var(--teal); color: white !important;
+      padding: 0.55rem 1.4rem; border-radius: 40px;
+      font-weight: 500; font-size: 0.88rem !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--teal-dark) !important; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 5rem;
+      background: linear-gradient(170deg, #e8f5f3 0%, var(--warm-white) 55%, #fff8f6 100%);
+      position: relative; overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute; top: -120px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(0,137,123,0.12) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -80px; left: -80px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(255,92,53,0.08) 0%, transparent 70%);
+      border-radius: 50%; pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--teal-glow); border: 1px solid rgba(0,137,123,0.25);
+      color: var(--teal-dark); border-radius: 40px;
+      padding: 0.4rem 1rem; font-size: 0.8rem; font-weight: 500;
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-badge span { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 800;
+      line-height: 0.92;
+      letter-spacing: -4px;
+      color: var(--teal-deep);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--coral);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 3rem;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+    .btn-primary {
+      background: var(--teal); color: white;
+      padding: 1rem 2.2rem; border-radius: 50px;
+      font-weight: 600; font-size: 0.95rem; text-decoration: none;
+      transition: all 0.25s; display: inline-block;
+      box-shadow: 0 4px 24px rgba(0,137,123,0.3);
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,137,123,0.4); }
+    .btn-ghost {
+      background: transparent; color: var(--teal-dark);
+      border: 1.5px solid rgba(0,87,79,0.3);
+      padding: 1rem 2.2rem; border-radius: 50px;
+      font-weight: 500; font-size: 0.95rem; text-decoration: none;
+      transition: all 0.25s; display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--teal); background: var(--teal-glow); }
+
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase;
+      animation: fadeUp 0.7s 0.5s ease both;
+    }
+    .scroll-line {
+      width: 1px; height: 40px; background: linear-gradient(to bottom, var(--text-muted), transparent);
+      animation: scrollDrop 1.5s ease-in-out infinite;
+    }
+
+    /* ── SECTION WRAPPER ── */
+    section { padding: 7rem 2rem; }
+    .wrap { max-width: 1060px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--coral); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800; letter-spacing: -1.5px;
+      line-height: 1.1; color: var(--teal-deep);
+      margin-bottom: 1.5rem;
+    }
+    .section-desc {
+      font-size: 1.05rem; color: var(--text-muted);
+      max-width: 560px; line-height: 1.75; font-weight: 300;
+    }
+
+    /* ── PROBLEM ── */
+    .problem { background: var(--teal-deep); }
+    .problem .section-label { color: rgba(255,255,255,0.5); }
+    .problem .section-title { color: white; }
+    .problem .section-desc { color: rgba(255,255,255,0.65); max-width: 680px; }
+
+    .problem-quote {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      color: rgba(255,255,255,0.9);
+      font-weight: 700; line-height: 1.4;
+      border-left: 3px solid var(--coral);
+      padding-left: 1.5rem;
+      margin: 3rem 0;
+      max-width: 700px;
+    }
+
+    .problem-cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5px; margin-top: 0.5rem;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: 20px; overflow: hidden;
+    }
+    .p-card {
+      background: rgba(255,255,255,0.04);
+      padding: 2.5rem; transition: background 0.25s;
+    }
+    .p-card:hover { background: rgba(255,255,255,0.08); }
+    .p-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 3rem; font-weight: 800;
+      color: var(--coral); opacity: 0.6; line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .p-card h3 { color: white; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .p-card p { color: rgba(255,255,255,0.55); font-size: 0.92rem; line-height: 1.65; font-weight: 300; }
+
+    /* ── SOLUTION ── */
+    .solution { background: var(--cream); }
+
+    .steps {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; margin-top: 4rem;
+      position: relative;
+    }
+    .steps::before {
+      content: '';
+      position: absolute; top: 2.2rem; left: 3rem; right: 3rem; height: 1px;
+      background: linear-gradient(to right, var(--teal), var(--coral));
+      z-index: 0;
+    }
+    .step {
+      padding: 0 1rem;
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center;
+    }
+    .step-num {
+      width: 3rem; height: 3rem; border-radius: 50%;
+      background: white; border: 2px solid var(--teal);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.9rem;
+      color: var(--teal); margin-bottom: 1.5rem;
+      box-shadow: 0 0 0 6px var(--cream);
+      transition: all 0.25s;
+    }
+    .step:hover .step-num { background: var(--teal); color: white; }
+    .step h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; color: var(--teal-dark); }
+    .step p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+    .step-badge {
+      display: inline-block; background: var(--teal-glow);
+      color: var(--teal-dark); border-radius: 20px;
+      padding: 0.2rem 0.7rem; font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.05em; text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .differentiator {
+      margin-top: 4rem; padding: 2.5rem 3rem;
+      background: white; border-radius: 20px;
+      border: 1px solid var(--line);
+      display: flex; align-items: center; gap: 2rem;
+    }
+    .diff-icon {
+      width: 3.5rem; height: 3.5rem; border-radius: 50%;
+      background: var(--coral-dim); display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0; font-size: 1.5rem;
+    }
+    .differentiator h4 { font-weight: 600; font-size: 1rem; margin-bottom: 0.4rem; color: var(--teal-dark); }
+    .differentiator p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; font-weight: 300; }
+
+    /* ── MARKET ── */
+    .market { background: white; }
+
+    .stats-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+      margin: 3.5rem 0;
+    }
+    .stat {
+      padding: 2.5rem;
+      background: var(--cream);
+      border-radius: 20px;
+      position: relative; overflow: hidden;
+      transition: transform 0.25s;
+    }
+    .stat:hover { transform: translateY(-4px); }
+    .stat::after {
+      content: '';
+      position: absolute; bottom: -20px; right: -20px;
+      width: 80px; height: 80px;
+      background: var(--teal-glow);
+      border-radius: 50%;
+    }
+    .stat-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 3.5rem; font-weight: 800;
+      color: var(--teal); letter-spacing: -2px;
+      line-height: 1;
+    }
+    .stat-label { font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; font-weight: 300; }
+
+    .expansion {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      margin-top: 0;
+    }
+    .exp-item {
+      padding: 2rem;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      position: relative; overflow: hidden;
+      transition: all 0.25s;
+    }
+    .exp-item:hover { border-color: var(--teal); background: var(--teal-glow); }
+    .exp-phase {
+      font-family: 'Syne', sans-serif; font-size: 0.7rem;
+      font-weight: 800; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--coral);
+      margin-bottom: 0.75rem;
+    }
+    .exp-item h4 { font-weight: 600; font-size: 1rem; margin-bottom: 0.4rem; }
+    .exp-item p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; font-weight: 300; }
+
+    /* ── BUSINESS MODEL ── */
+    .bizmodel { background: var(--cream); }
+
+    .model-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2rem; margin-top: 4rem;
+    }
+    .model-card {
+      background: white; border-radius: 20px;
+      padding: 2.5rem;
+      border: 1px solid var(--line);
+      transition: all 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .model-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-dark));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .model-card:hover::before { transform: scaleX(1); }
+    .model-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .model-icon { font-size: 2rem; margin-bottom: 1.25rem; }
+    .model-card h3 { font-weight: 700; font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--teal-dark); }
+    .model-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; font-weight: 300; }
+    .model-tag {
+      display: inline-block; margin-top: 1.25rem;
+      background: var(--teal-glow); color: var(--teal-dark);
+      font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.8rem;
+      border-radius: 20px; letter-spacing: 0.04em;
+    }
+
+    .strategy-note {
+      margin-top: 2.5rem; padding: 1.75rem 2rem;
+      background: white; border-radius: 14px;
+      border-left: 3px solid var(--coral);
+      font-size: 0.9rem; color: var(--text-muted); line-height: 1.7;
+    }
+    .strategy-note strong { color: var(--text); }
+
+    /* ── COMPETITION ── */
+    .competition { background: white; }
+
+    .position-map {
+      margin-top: 4rem;
+      position: relative; border: 1px solid var(--line);
+      border-radius: 24px; overflow: hidden;
+      background: var(--cream);
+      aspect-ratio: 16/9; max-height: 440px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* quadrant axes */
+    .axis-h, .axis-v {
+      position: absolute; background: rgba(0,0,0,0.12);
+    }
+    .axis-h { top: 50%; left: 5%; right: 5%; height: 1px; }
+    .axis-v { left: 50%; top: 5%; bottom: 5%; width: 1px; }
+
+    .axis-label {
+      position: absolute; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .comp-dot {
+      position: absolute; width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(0,0,0,0.2); border: 2px solid white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transform: translate(-50%, -50%);
+    }
+    .comp-dot-label {
+      position: absolute;
+      font-size: 0.72rem; color: var(--text-muted); font-weight: 500;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+
+    /* Firstep star */
+    .firstep-dot {
+      position: absolute;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--teal); border: 3px solid white;
+      box-shadow: 0 0 0 6px rgba(0,137,123,0.2), 0 4px 16px rgba(0,137,123,0.4);
+      transform: translate(-50%, -50%);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .firstep-dot-label {
+      position: absolute;
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: 0.85rem; color: var(--teal-dark);
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 6px rgba(0,137,123,0.2), 0 4px 16px rgba(0,137,123,0.4); }
+      50% { box-shadow: 0 0 0 12px rgba(0,137,123,0.1), 0 4px 24px rgba(0,137,123,0.5); }
+    }
+
+    /* ── TRACTION ── */
+    .traction { background: var(--cream); }
+
+    .timeline-wrap {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; margin-top: 4rem; position: relative;
+    }
+    .timeline-wrap::before {
+      content: '';
+      position: absolute; top: 1.15rem; left: 1rem; right: 1rem; height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--coral));
+    }
+
+    .t-item {
+      padding: 0 1.25rem;
+      position: relative; z-index: 1;
+    }
+    .t-dot {
+      width: 2.4rem; height: 2.4rem; border-radius: 50%;
+      background: white; border: 2px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 700; color: var(--text-muted);
+      margin-bottom: 2rem;
+      box-shadow: 0 0 0 5px var(--cream);
+      transition: all 0.25s;
+    }
+    .t-item.active .t-dot {
+      background: var(--teal); border-color: var(--teal);
+      color: white; box-shadow: 0 0 0 5px var(--cream), 0 0 0 8px rgba(0,137,123,0.2);
+    }
+    .t-item h4 { font-weight: 700; font-size: 0.9rem; margin-bottom: 0.6rem; color: var(--teal-dark); }
+    .t-item ul { list-style: none; padding: 0; }
+    .t-item ul li {
+      font-size: 0.82rem; color: var(--text-muted); font-weight: 300;
+      line-height: 1.6; padding: 0.15rem 0;
+      padding-left: 1rem; position: relative;
+    }
+    .t-item ul li::before {
+      content: '—'; position: absolute; left: 0;
+      color: var(--teal); font-size: 0.7rem;
+    }
+
+    /* ── TEAM ── */
+    .team { background: white; }
+
+    .team-card {
+      display: grid; grid-template-columns: 1fr 1.5fr;
+      gap: 5rem; align-items: center; margin-top: 4rem;
+    }
+    .team-photo-wrap {
+      position: relative;
+    }
+    .team-photo-bg {
+      width: 100%; aspect-ratio: 1;
+      border-radius: 32px;
+      background: linear-gradient(135deg, #e8f5f3, #d4ede9);
+      display: flex; align-items: flex-end; justify-content: center;
+      overflow: hidden; position: relative;
+    }
+    .team-photo-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,87,79,0.15), transparent 60%);
+    }
+    .team-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 6rem; opacity: 0.3;
+    }
+    .team-accent {
+      position: absolute; bottom: -1rem; right: -1rem;
+      width: 5rem; height: 5rem; border-radius: 16px;
+      background: var(--coral); display: flex; align-items: center;
+      justify-content: center; font-size: 2rem;
+      box-shadow: 0 8px 24px rgba(255,92,53,0.35);
+    }
+    .team-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.5rem; font-weight: 800;
+      letter-spacing: -1.5px; color: var(--teal-deep);
+      margin-bottom: 0.25rem;
+    }
+    .team-role {
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--coral); margin-bottom: 2rem;
+    }
+
+    .credentials {
+      display: flex; flex-direction: column; gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .cred {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.85rem 1.25rem;
+      background: var(--cream); border-radius: 12px;
+    }
+    .cred-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .cred-text { font-size: 0.88rem; font-weight: 500; color: var(--text); }
+    .cred-sub { font-size: 0.78rem; color: var(--text-muted); font-weight: 300; }
+
+    .founder-quote {
+      padding: 1.75rem;
+      background: var(--teal-glow);
+      border-radius: 16px;
+      border-left: 3px solid var(--teal);
+      font-size: 0.95rem; line-height: 1.75;
+      color: var(--teal-deep); font-weight: 300; font-style: italic;
+    }
+
+    /* ── ASK ── */
+    .ask { background: var(--teal-deep); }
+    .ask .section-label { color: rgba(255,255,255,0.4); }
+    .ask .section-title { color: white; }
+
+    .ask-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem; margin-top: 3.5rem;
+    }
+    .ask-item {
+      padding: 2rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px; transition: all 0.25s;
+    }
+    .ask-item:hover { background: rgba(255,255,255,0.1); }
+    .ask-arrow { font-size: 1.5rem; margin-bottom: 1rem; }
+    .ask-item h4 { font-weight: 700; font-size: 1rem; color: white; margin-bottom: 0.5rem; }
+    .ask-item p { font-size: 0.88rem; color: rgba(255,255,255,0.55); font-weight: 300; line-height: 1.6; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111; color: white;
+      padding: 4rem 2rem; text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Syne', sans-serif; font-size: 3rem;
+      font-weight: 800; letter-spacing: -2px; color: var(--teal);
+      margin-bottom: 1rem;
+    }
+    .footer-tagline {
+      font-size: 1rem; color: rgba(255,255,255,0.4);
+      max-width: 500px; margin: 0 auto 2.5rem;
+      font-weight: 300; font-style: italic;
+    }
+    .footer-cta {
+      display: inline-block; background: var(--coral);
+      color: white; padding: 1rem 2.5rem; border-radius: 50px;
+      font-weight: 600; text-decoration: none; font-size: 0.95rem;
+      transition: all 0.25s; margin-bottom: 3rem;
+      box-shadow: 0 4px 20px rgba(255,92,53,0.35);
+    }
+    .footer-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,92,53,0.5); }
+    .footer-copy {
+      font-size: 0.78rem; color: rgba(255,255,255,0.2);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes scrollDrop {
+      0%, 100% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+      50% { opacity: 0.4; transform: scaleY(0.5); transform-origin: top; }
+    }
+
+    /* intersection observer reveals */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .steps::before { display: none; }
+      .stats-row, .expansion, .model-grid, .ask-grid { grid-template-columns: 1fr; }
+      .timeline-wrap { grid-template-columns: 1fr; }
+      .timeline-wrap::before { display: none; }
+      .team-card { grid-template-columns: 1fr; gap: 2.5rem; }
+      .team-photo-wrap { max-width: 300px; margin: 0 auto; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-    <h1>Firstep</h1>
-    <p class="tagline">The neutral financial guidance platform for first-time investors built by one of them. <br><strong>Startup World Cup 2026 Pre-seed Stage Taiwan</strong></p>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Firstep</div>
+  <div class="nav-links">
+    <a href="#problem">Problem</a>
+    <a href="#solution">Solution</a>
+    <a href="#market">Market</a>
+    <a href="#team">Team</a>
+    <a href="mailto:contact@firstep.io" class="nav-cta">Contact Us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-badge">
+    <span></span>
+    Startup World Cup 2026 · Pre-seed · Taiwan
+  </div>
+  <h1>First<em>ep</em></h1>
+  <p class="hero-sub">
+    The neutral financial guidance platform for first-time investors —
+    built by one of them.
+  </p>
+  <div class="hero-actions">
+    <a href="#solution" class="btn-primary">See Our Solution</a>
+    <a href="mailto:contact@firstep.io" class="btn-ghost">Contact the Founder</a>
+  </div>
+  <div class="hero-scroll">
+    Scroll
+    <div class="scroll-line"></div>
+  </div>
 </header>
 
-<div class="container">
-    
-    <!-- Problem Section -->
-    <section>
-        <h2>The Problem</h2>
-        <p>Most young people know they should invest—but don't. Over 1,000,000 university students in Taiwan face these barriers simultaneously:</p>
-        <div class="grid">
-            <div class="card">
-                <h3 class="highlight">Knowledge Gap</h3>
-                <p>No finance background, no accessible starting point. "I just don't know where to start."</p>
-            </div>
-            <div class="card">
-                <h3 class="highlight">Trust Gap</h3>
-                <p>Banks and brokers are seen as conflict-ridden salespeople. Students fear losing money and biased advice.</p>
-            </div>
-            <div class="card">
-                <h3 class="highlight">Action Gap</h3>
-                <p>Reading books takes too long—most quit before even opening their first account.</p>
-            </div>
-        </div>
-    </section>
+<!-- PROBLEM -->
+<section class="problem" id="problem">
+  <div class="wrap">
+    <div class="section-label">Problem</div>
+    <h2 class="section-title">Most young people know<br>they should invest — but don't</h2>
 
-    <!-- Market Section -->
-    <section>
-        <h2>Market Opportunity</h2>
-        <p>A massive underserved market with a clear expansion path:</p>
-        <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
-            <div class="stat-box">
-                <span class="stat-num">1M+</span>
-                University Students
-            </div>
-            <div class="stat-box">
-                <span class="stat-num">70%</span>
-                Non-Finance Background
-            </div>
-            <div class="stat-box">
-                <span class="stat-num">NT$2B+</span>
-                TAM (Taiwan Education)
-            </div>
-        </div>
-        <p style="margin-top: 2rem;"><strong>Expansion Path:</strong> University Students (Phase 1) → Recent Graduates (Phase 2) → Southeast Asia Market (Phase 3).</p>
-    </section>
+    <blockquote class="problem-quote reveal">
+      "I know I should invest.<br>I just don't know where to start — and I'm scared of losing money."
+    </blockquote>
 
-    <!-- Solution Section -->
-    <section>
-        <h2>The Two-Layer Solution</h2>
-        <div class="grid">
-            <div class="card">
-                <span class="market-badge">Personalization</span>
-                <h3>01. User Profile</h3>
-                <p>3-min quiz analyzing age, income, risk tolerance & goals.</p>
-            </div>
-            <div class="card">
-                <span class="market-badge">Education</span>
-                <h3>02. Master Wisdom</h3>
-                <p>Tailored principles from Buffett and Peter Lynch personalized to your life stage.</p>
-            </div>
-            <div class="card" style="grid-column: span 2;">
-                <span class="market-badge">Trust</span>
-                <h3>03. Advisor Match & Action</h3>
-                <p>Vetted independent advisors with <strong>Zero Commission Conflict</strong>. Open accounts via trusted partners only when you are ready.</p>
-            </div>
-        </div>
-    </section>
+    <p class="section-desc reveal reveal-delay-1" style="color:rgba(255,255,255,0.55); margin-bottom: 3rem;">
+      Over <strong style="color:white;">1,000,000 university students</strong> in Taiwan face all three barriers simultaneously — most without any finance background, and almost no trustworthy place to start.
+    </p>
 
-    <!-- Business Model -->
-    <section>
-        <h2>Sustainable Business Model</h2>
-        <div class="model-item">
-            <h3>Broker Referral Fees</h3>
-            <p>Industry-standard, fully compliant commission from partner brokers when users open accounts (Zero cost to users).</p>
-        </div>
-        <div class="model-item">
-            <h3>Student/Campus Subscription</h3>
-            <p>B2C: NT$49-99/mo for priority matching. B2B: Institutional pricing for universities to provide free access.</p>
-        </div>
-        <div class="model-item">
-            <h3>Advisor Platform Fee</h3>
-            <p>Monthly listing fee from independent advisors. We charge the supply side; users match for free.</p>
-        </div>
-    </section>
+    <div class="problem-cards reveal reveal-delay-2">
+      <div class="p-card">
+        <div class="p-num">01</div>
+        <h3>Knowledge Gap</h3>
+        <p>No finance background, no accessible starting point. "I just don't know where to begin."</p>
+      </div>
+      <div class="p-card">
+        <div class="p-num">02</div>
+        <h3>Trust Gap</h3>
+        <p>Banks and brokers are seen as conflict-ridden salespeople. Students fear biased advice and losing money.</p>
+      </div>
+      <div class="p-card">
+        <div class="p-num">03</div>
+        <h3>Action Gap</h3>
+        <p>Reading books takes too long — most quit before they even open their first account.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Traction -->
-    <section>
-        <h2>Traction & Roadmap</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <strong>Now: Concept Validation</strong>
-                <p>Refining problem statement, user research (30+ interviews), and legal structure identification.</p>
+<!-- SOLUTION -->
+<section class="solution" id="solution">
+  <div class="wrap">
+    <div class="section-label">Solution</div>
+    <h2 class="section-title">A two-layer guidance system<br>built on trust</h2>
+    <p class="section-desc">From your personal profile to your first brokerage account — every step backed by a structure free of conflict of interest.</p>
+
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-badge">Personalization</div>
+        <h3>User Profile</h3>
+        <p>3-min quiz: age, income, risk tolerance & investment goals</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-badge">Education</div>
+        <h3>Master Wisdom</h3>
+        <p>Buffett & Peter Lynch principles, tailored to your life stage and profile</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-badge">Matching</div>
+        <h3>Advisor Match</h3>
+        <p>Vetted independent advisors — income from our platform only, zero commission conflict</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-badge">Action</div>
+        <h3>Take Action</h3>
+        <p>Open a brokerage account via a trusted partner when you're ready — done</p>
+      </div>
+    </div>
+
+    <div class="differentiator reveal reveal-delay-1">
+      <div class="diff-icon">🔒</div>
+      <div>
+        <h4>Key Differentiator: Zero Conflict of Interest</h4>
+        <p>Our independent advisors are not affiliated with any broker. Their income comes <strong>solely from our platform</strong> — not from trades — ensuring every recommendation you receive is genuinely neutral.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section class="market" id="market">
+  <div class="wrap">
+    <div class="section-label">Market</div>
+    <h2 class="section-title">A massive underserved market<br>with a clear expansion path</h2>
+
+    <div class="stats-row">
+      <div class="stat reveal">
+        <div class="stat-num">1M+</div>
+        <div class="stat-label">University students in Taiwan</div>
+      </div>
+      <div class="stat reveal reveal-delay-1">
+        <div class="stat-num">70%</div>
+        <div class="stat-label">Non-business / finance background</div>
+      </div>
+      <div class="stat reveal reveal-delay-2">
+        <div class="stat-num">NT$2B+</div>
+        <div class="stat-label">Fin-education market (Taiwan)</div>
+      </div>
+    </div>
+
+    <div class="expansion">
+      <div class="exp-item reveal">
+        <div class="exp-phase">Phase 1</div>
+        <h4>University Students (non-finance)</h4>
+        <p>~700K TAM · NT$420M SAM at NT$600/yr</p>
+      </div>
+      <div class="exp-item reveal reveal-delay-1">
+        <div class="exp-phase">Phase 2</div>
+        <h4>Recent Graduates Entering Workforce</h4>
+        <p>+300K/yr cohort naturally ageing into the platform</p>
+      </div>
+      <div class="exp-item reveal reveal-delay-2">
+        <div class="exp-phase">Phase 3</div>
+        <h4>Southeast Asia Student Market</h4>
+        <p>Similar cultural barriers to investing, replicable expansion model</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUSINESS MODEL -->
+<section class="bizmodel">
+  <div class="wrap">
+    <div class="section-label">Business Model</div>
+    <h2 class="section-title">Three revenue streams,<br>low-friction entry strategy</h2>
+
+    <div class="model-grid">
+      <div class="model-card reveal">
+        <div class="model-icon">🤝</div>
+        <h3>Broker Referral Fee</h3>
+        <p>Industry-standard commission from partner brokers when users open accounts. Zero cost to users, fully compliant.</p>
+        <span class="model-tag">Zero user cost</span>
+      </div>
+      <div class="model-card reveal reveal-delay-1">
+        <div class="model-icon">📚</div>
+        <h3>Student / Campus Subscription</h3>
+        <p><strong>B2C:</strong> NT$49–99/mo for advanced reports & priority advisor matching.<br><strong>B2B:</strong> Institutional pricing for universities to provide free access.</p>
+        <span class="model-tag">Dual-track</span>
+      </div>
+      <div class="model-card reveal reveal-delay-2">
+        <div class="model-icon">💼</div>
+        <h3>Advisor Platform Fee</h3>
+        <p>Monthly listing fee from independent advisors. We charge the supply side — users match for free.</p>
+        <span class="model-tag">Charged to supply side</span>
+      </div>
+    </div>
+
+    <div class="strategy-note reveal reveal-delay-1">
+      <strong>Early strategy:</strong> Lead with broker referral fee — zero cost to users — to build the user base. Layer in subscription and advisor fees once trust and retention are proven.
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITION -->
+<section class="competition">
+  <div class="wrap">
+    <div class="section-label">Competition</div>
+    <h2 class="section-title">We sit in a white space<br>no one has claimed</h2>
+    <p class="section-desc">The "high trust / beginner-friendly" quadrant is almost entirely vacant among existing players.</p>
+
+    <div class="position-map reveal">
+      <div class="axis-h"></div>
+      <div class="axis-v"></div>
+
+      <span class="axis-label" style="top: 50%; left: 6%; transform: translateY(-50%);">Low expertise</span>
+      <span class="axis-label" style="top: 50%; right: 5%; transform: translateY(-50%);">High expertise</span>
+      <span class="axis-label" style="top: 7%; left: 50%; transform: translateX(-50%);">High trust / Neutral ↑</span>
+      <span class="axis-label" style="bottom: 7%; left: 50%; transform: translateX(-50%);">Low trust / Conflicted ↓</span>
+
+      <div class="comp-dot" style="left: 25%; top: 75%;"></div>
+      <div class="comp-dot-label" style="left: 25%; top: 80%;">Broker Apps</div>
+
+      <div class="comp-dot" style="left: 65%; top: 65%;"></div>
+      <div class="comp-dot-label" style="left: 65%; top: 70%;">Bank Advisors</div>
+
+      <div class="comp-dot" style="left: 20%; top: 60%;"></div>
+      <div class="comp-dot-label" style="left: 20%; top: 65%;">YouTube / Podcast</div>
+
+      <div class="comp-dot" style="left: 75%; top: 70%;"></div>
+      <div class="comp-dot-label" style="left: 75%; top: 75%;">CMoney / Stock Sites</div>
+
+      <div class="firstep-dot" style="left: 28%; top: 28%;"></div>
+      <div class="firstep-dot-label" style="left: 28%; top: 18%;">✦ Firstep</div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACTION -->
+<section class="traction">
+  <div class="wrap">
+    <div class="section-label">Traction</div>
+    <h2 class="section-title">Concept stage — clear milestones<br>to first revenue</h2>
+
+    <div class="timeline-wrap">
+      <div class="t-item active reveal">
+        <div class="t-dot">NOW</div>
+        <h4>Concept Validation</h4>
+        <ul>
+          <li>Apply to accelerator</li>
+          <li>Refine problem statement</li>
+          <li>Identify legal structure</li>
+        </ul>
+      </div>
+      <div class="t-item reveal reveal-delay-1">
+        <div class="t-dot">M1–2</div>
+        <h4>User Research</h4>
+        <ul>
+          <li>30 user interviews</li>
+          <li>Validate pain point & willingness to pay</li>
+          <li>Begin advisor network outreach</li>
+        </ul>
+      </div>
+      <div class="t-item reveal reveal-delay-2">
+        <div class="t-dot">M3–4</div>
+        <h4>MVP Launch</h4>
+        <ul>
+          <li>Profile quiz + master wisdom layer</li>
+          <li>First 5 independent advisors onboarded</li>
+          <li>Broker partnership signed</li>
+        </ul>
+      </div>
+      <div class="t-item reveal reveal-delay-3">
+        <div class="t-dot">M5–6</div>
+        <h4>First 500 Users</h4>
+        <ul>
+          <li>30-day retention target >40%</li>
+          <li>First advisor-matched consultation</li>
+          <li>Pre-seed fundraise prep</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="section-label">Team</div>
+    <h2 class="section-title">Rare combination: quant depth<br>+ real investing track record</h2>
+
+    <div class="team-card">
+      <div class="team-photo-wrap reveal">
+        <div class="team-photo-bg">
+          <div class="team-placeholder">👩‍💼</div>
+        </div>
+        <div class="team-accent">📈</div>
+      </div>
+
+      <div class="reveal reveal-delay-1">
+        <div class="team-role">Founder & CEO</div>
+        <div class="team-name">Founder</div>
+
+        <div class="credentials">
+          <div class="cred">
+            <div class="cred-icon">🎓</div>
+            <div>
+              <div class="cred-text">MS Financial Engineering @ NYU (incoming)</div>
+              <div class="cred-sub">New York University</div>
             </div>
-            <div class="timeline-item">
-                <strong>Month 3-4: MVP Launch</strong>
-                <p>Profile quiz launch, first 5 independent advisors onboarded, broker partnership signed.</p>
+          </div>
+          <div class="cred">
+            <div class="cred-icon">⚛️</div>
+            <div>
+              <div class="cred-text">NTHU Quantitative Finance</div>
+              <div class="cred-sub">Founder & President — NTHU Data Science Club</div>
             </div>
-            <div class="timeline-item">
-                <strong>Month 5-6: Growth</strong>
-                <p>Targeting first 500 users with >40% retention. Preparing for Pre-seed fundraise.</p>
+          </div>
+          <div class="cred">
+            <div class="cred-icon">📊</div>
+            <div>
+              <div class="cred-text">Yuanta Futures — Proprietary Trading Internship</div>
+              <div class="cred-sub">2 years hands-on investing experience</div>
             </div>
+          </div>
         </div>
-    </section>
 
-    <!-- Team -->
-    <section class="cta-section">
-        <h2>Founder & Vision</h2>
-        <p><strong>NTHU Quantitative Finance | Incoming MS Financial Engineering @ NYU</strong></p>
-        <p>Founder & President of NTHU Data Science Club. Experience in Proprietary Trading at Yuanta Futures. We combine quantitative depth with a guided path for every student.</p>
-        <a href="mailto:contact@firstep.io" class="cta-button">Join the Revolution</a>
-    </section>
+        <div class="founder-quote">
+          "Quantitative finance training gives me the technical depth to understand risk and portfolio theory. I built Firstep to give every student — especially those without this background — a guided, trusted path to start investing."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-</div>
+<!-- ASK -->
+<section class="ask">
+  <div class="wrap">
+    <div class="section-label">What We're Asking For</div>
+    <h2 class="section-title">We're looking for<br>accelerator support</h2>
 
+    <div class="ask-grid">
+      <div class="ask-item reveal">
+        <div class="ask-arrow">🧭</div>
+        <h4>Mentorship</h4>
+        <p>Access to fintech and regulatory advisors in Taiwan</p>
+      </div>
+      <div class="ask-item reveal reveal-delay-1">
+        <div class="ask-arrow">⚖️</div>
+        <h4>Legal Guidance</h4>
+        <p>Navigate FSC regulations for advisor matchmaking services</p>
+      </div>
+      <div class="ask-item reveal reveal-delay-2">
+        <div class="ask-arrow">🔗</div>
+        <h4>Network</h4>
+        <p>Introductions to independent financial advisors & broker partners</p>
+      </div>
+      <div class="ask-item reveal reveal-delay-3">
+        <div class="ask-arrow">💰</div>
+        <h4>MVP Funding</h4>
+        <p>6-month runway to validate with first 500 users</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-    <p>"Every investor started somewhere. We make sure that somewhere is Firstep."</p>
-    <p>© 2026 Firstep Project | Startup World Cup Pre-seed Stage Taiwan</p>
+  <div class="footer-logo">Firstep</div>
+  <p class="footer-tagline">"Every investor started somewhere. We make sure that somewhere is Firstep."</p>
+  <a href="mailto:contact@firstep.io" class="footer-cta">Join the Revolution →</a>
+  <p class="footer-copy">© 2026 Firstep Project · Startup World Cup Pre-seed Stage Taiwan</p>
 </footer>
 
+<script>
+  // Intersection Observer for scroll reveals
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
